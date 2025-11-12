@@ -1,0 +1,44 @@
+﻿<Window x:Class="WpfApp3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Admin Panel" Height="450" Width="800">
+    <Grid Margin="10">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+            <StackPanel Margin="0,0,10,0">
+                <TextBlock Text="Version:"/>
+                <TextBox Name="txtVersion" Width="150"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,10,0">
+                <TextBlock Text="UserName:"/>
+                <TextBox Name="txtUserName" Width="150"/>
+            </StackPanel>
+
+            <StackPanel Margin="0,0,10,0">
+                <TextBlock Text="Password:"/>
+                <PasswordBox Name="txtPassword" Width="150"/>
+            </StackPanel>
+
+            <Button Content="Add" Width="80" Margin="10,0,0,0" Click="Add_Click"/>
+        </StackPanel>
+
+        <DataGrid Name="dataGrid" Grid.Row="1" AutoGenerateColumns="False" CanUserAddRows="False" SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Id" Binding="{Binding Id}" IsReadOnly="True" Width="50"/>
+                <DataGridTextColumn Header="Version" Binding="{Binding Version}" Width="100"/>
+                <DataGridTextColumn Header="UserName" Binding="{Binding UserName}" Width="100"/>
+                <DataGridTextColumn Header="PasswordHash" Binding="{Binding PasswordHash}" Width="200"/>
+                <DataGridTextColumn Header="Salt" Binding="{Binding Salt}" Width="150"/>
+                <DataGridTextColumn Header="RegTime" Binding="{Binding RegTime}" Width="150"/>
+                <DataGridTextColumn Header="ModTime" Binding="{Binding ModTime}" Width="150"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button Content="Check Password" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="120" Height="30" Margin="0,0,0,10" Grid.Row="1" Click="Check_Click"/>
+    </Grid>
+</Window>
